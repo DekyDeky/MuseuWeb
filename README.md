@@ -1,0 +1,2 @@
+# MuseuWeb
+Este repositorio faz parte de um projeto chamado "Museu Virtual" desenvolvido pela The Feitos Game Studio em parceria com o Museu Municipal de Telêmaco Borba. O projeto atual tem o objetivo de facilitar a adição de novos itens ao ambiente virtual do Museu, através da importação desses modelos de uma interface web para o servidor e do servidor para o ambiente virtual.
