@@ -1,0 +1,48 @@
+.main {
+    margin: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .upFormSection {
+        border: 2px dashed black;
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .upTitle {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 1rem;
+    }
+
+    .upSubTitle {
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .upFormTitleLabel {
+        margin-bottom: .5rem;
+        font-weight: 700;
+    }
+
+    .upFormGroup {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0;
+
+        .upFormLabel {
+            margin-bottom: .5rem;
+        }
+    }
+
+    .upFormTamanhos {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+}

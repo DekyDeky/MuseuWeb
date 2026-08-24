@@ -23,5 +23,11 @@
     "oxlint": "^1.75.0",
     "typescript": "~6.0.2",
     "vite": "^8.2.0"
+  },
+  "allowScripts": {
+    "@emotion/react@11.14.0": true,
+    "@emotion/styled@11.14.1": true,
+    "@mui/material@9.3.1": true,
+    "@mui/icons-material@9.3.1": true
   }
 }
