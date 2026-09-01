@@ -22,11 +22,29 @@ const router = createBrowserRouter([
     }
   },
   {
-    path: '/upload',
+    path: '/upload/material',
     lazy: async () => {
-      const { default: Upload } = await import('./pages/upload/Upload');
+      const { default: UploadMaterial } = await import('./pages/upload/UploadMaterial');
       return {
-        Component: Upload
+        Component: UploadMaterial
+      }
+    }
+  },
+  {
+    path: '/upload/textura',
+    lazy: async () => {
+      const { default: UploadMaterial } = await import('./pages/upload/UploadMaterial');
+      return {
+        Component: UploadMaterial
+      }
+    }
+  },
+  {
+    path: '/upload/som',
+    lazy: async () => {
+      const { default: UploadMaterial } = await import('./pages/upload/UploadMaterial');
+      return {
+        Component: UploadMaterial
       }
     }
   },
@@ -46,15 +64,3 @@ function App() {
 }
 
 export default App
-
-/*
-
-{
-    path: '/',
-    lazy: async () => {
-      const { default: Login } = await import('./pages/login/Login');
-      return {
-        Component: Login
-      }
-    }
-  },*/

@@ -6,8 +6,7 @@ export default function Home(){
     return (
         <>
         <Header
-            link="/upload"
-            texto="Fazer Upload"
+            fullHeader={true}
         />
         <main className={style.upMain}>
             <UploadPreview/>

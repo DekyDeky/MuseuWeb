@@ -10,19 +10,27 @@
         font-size: 2rem;
     }
 
-    .headerUpload {
-        text-decoration: none;
-        color: black;
-        border: 3px solid black;
-        border-radius: 10px;
-        font-size: 1.5rem;
-        padding: 1rem;
-        transition: .2s;
-    }
+    .headerBtns {
 
-    .headerUpload:hover {
-        transition: .2s;
-        background-color: black;
-        color: white;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .headerUpload {
+            text-decoration: none;
+            color: black;
+            border: 3px solid black;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            padding: 1rem;
+            transition: .2s;
+        }
+
+        .headerUpload:hover {
+            transition: .2s;
+            background-color: black;
+            color: white;
+        }
+
     }
 }

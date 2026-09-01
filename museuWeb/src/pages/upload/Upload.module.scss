@@ -45,4 +45,27 @@
         justify-content: space-between;
         gap: 1rem;
     }
+
+    .formBtn {
+        background-color: white;
+
+        border: 2px dashed black;
+        border-radius: 10px;
+
+        font-size: 2rem;
+
+        display: block;
+        width: 100%;
+
+        transition: .2s;
+
+        cursor: pointer;
+    }
+
+    .formBtn:hover {
+        transition: .2s;
+        background-color: black;
+        border: 2px solid black;
+        color: white;
+    }
 }
