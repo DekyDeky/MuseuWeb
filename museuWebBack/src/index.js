@@ -1,22 +1,25 @@
-const express = require('express');
-const router = require('./routes/index.router');
-const connect = require('./config/connect');
+  const express = require('express');
+  const cors = require('cors');
+  const router = require('./routes/index.router');
+  const connect = require('./config/connect');
 
-const app = express();
-const port = 3000;
+  const app = express();
+  const port = 3000;
 
-app.use(express.json());
+  app.use(cors());
 
-app.use("/", router);
+  app.use(express.json());
 
-connect.connect((err) => {
-    if(err){
-        console.log("Falha ao se conectar com o banco! ", err);
-    } else {
-        console.log("Conexão ao banco realizada!");
-    }
-})
+  app.use("/", router);
 
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Example app listening on port ${port}`);
-});
+  connect.connect((err) => {
+      if(err){
+          console.log("Falha ao se conectar com o banco! ", err);
+      } else {
+          console.log("Conexão ao banco realizada!");
+      }
+  })
+
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`Example app listening on port ${port}`);
+  });

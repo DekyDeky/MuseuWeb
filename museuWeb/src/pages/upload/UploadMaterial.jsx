@@ -1,18 +1,48 @@
+import { useState } from 'react';
 import Header from '../../components/header/Header';
 import style from './Upload.module.scss';
 import axios from 'axios';
 
 export default function UploadMaterial(){
+    const [nome, setNome] = useState("");
+    const [descricao, setDescricao] = useState("");
+    const [arquivo, setArquivo] = useState(null);
 
     let currentLocation = window.location;
     let type = currentLocation.toString().split("/").pop();
 
     let formAtualConteudo;
 
-    const handleSubmit = e => {
+    async function handleSubmit(e){
         e.preventDefault();
 
-        axios.post("")
+        console.log("entrei!")
+
+
+        const formData = new FormData();
+
+        formData.append("nome", nome);
+        formData.append("descricao", descricao);
+
+        if(arquivo) {
+            formData.append("arquivo", arquivo);
+        }else {
+            console.error("Não há um arquivo!");
+            return;
+        }
+
+        console.log(formData)
+
+        try {
+            const response = await axios.post(
+                "http://localhost:3000/upload/audio",
+                formData
+            );
+
+            console.log(response);
+        } catch (error){
+            console.error("Erro", error);
+        }
     }
 
     if(type == 'material'){
@@ -63,25 +93,24 @@ export default function UploadMaterial(){
         />
         <main className={style.main}>
             <h1 className={style.upTitle}>Fazer Upload</h1>
-            <form className={style.upForm}>
+            <form className={style.upForm} onSubmit={handleSubmit}>
                 
                 <h2 className={style.upSubTitle}>Upload dos Arquivos</h2>
-                {/*formAtualConteudo*/}
 
                 <div className={style.upFormSection}>   
 
                 <div className={style.upFormArquivos}>
                     <div className={style.upFormGroup}>
                         <label className={style.upFormLabel}>Nome do {type}</label>
-                        <input type="text" className={style.upFormInput}></input>
+                        <input type="text" className={style.upFormInput} value={nome} onChange={(e) => setNome(e.target.value)}></input>
                     </div>
                     <div className={style.upFormGroup}>
                         <label className={style.upFormLabel}>Descrição do {type}</label>
-                        <textarea className={style.upFormInput}></textarea>
+                        <textarea className={style.upFormInput} value={descricao} onChange={(e) => setDescricao(e.target.value)}></textarea>
                     </div>
                     <div className={style.upFormGroup}>
                         <label className={style.upFormLabel}>Arquivo do {type}</label>
-                        <input type="file" className={style.upFormInput}></input>
+                        <input type="file" className={style.upFormInput} onChange={(e) => setArquivo(e.target.files?.[0] ?? null)}></input>
                     </div>
                 </div>
             
