@@ -1,5 +1,6 @@
 const express = require('express');
 const router = require('./routes/index.router');
+const connect = require('./config/connect');
 
 const app = express();
 const port = 3000;
@@ -7,6 +8,14 @@ const port = 3000;
 app.use(express.json());
 
 app.use("/", router);
+
+connect.connect((err) => {
+    if(err){
+        console.log("Falha ao se conectar com o banco! ", err);
+    } else {
+        console.log("Conexão ao banco realizada!");
+    }
+})
 
 app.listen(port, '0.0.0.0', () => {
   console.log(`Example app listening on port ${port}`);

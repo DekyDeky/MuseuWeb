@@ -1,5 +1,6 @@
 import Header from '../../components/header/Header';
 import style from './Upload.module.scss';
+import axios from 'axios';
 
 export default function UploadMaterial(){
 
@@ -8,23 +9,15 @@ export default function UploadMaterial(){
 
     let formAtualConteudo;
 
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        axios.post("")
+    }
+
     if(type == 'material'){
         formAtualConteudo = (
             <>
-                <div className={style.upFormSection}>      
-                    <div className={style.upFormArquivos}>
-                        <h3 className={style.upFormTitleLabel}>Modelo 3D</h3>
-                        <div className={style.upFormGroup}>
-                            <label className={style.upFormLabel}>Descrição do Modelo</label>
-                            <textarea className={style.upFormInput}></textarea>
-                        </div>
-                        <div className={style.upFormGroup}>
-                            <label className={style.upFormLabel}>Arquivo do Modelo</label>
-                            <input type="file" className={style.upFormInput}></input>
-                        </div>
-                    </div>
-                </div>
-
                 <h2 className={style.upSubTitle}>Alocar Textura e Som</h2>
                 <div className={style.upFormSection}>
                     <div className={style.upFormGroup}>
@@ -56,44 +49,10 @@ export default function UploadMaterial(){
                         </div>
                     </div>
                 </div>
+
+                <input hidden value="material"/>
             </>
                 );
-    }else if(type == "textura"){
-        formAtualConteudo = (
-            <div className={style.upFormSection}>
-
-                <div className={style.upFormArquivos}>
-                    <h3 className={style.upFormTitleLabel}>Textura do Modelo</h3>
-                    <div className={style.upFormGroup}>
-                        <label className={style.upFormLabel}>Descrição da Textura</label>
-                        <textarea className={style.upFormInput}></textarea>
-                    </div>
-                    <div className={style.upFormGroup}>
-                        <label className={style.upFormLabel}>Arquivo do Modelo</label>
-                        <input type="file" className={style.upFormInput}></input>
-                    </div>
-                </div>
-
-            </div> 
-        );
-    }else if(type == "som"){
-        formAtualConteudo = (
-            <div className={style.upFormSection}>   
-
-                <div className={style.upFormArquivos}>
-                    <h3 className={style.upFormTitleLabel}>Som do Modelo</h3>
-                    <div className={style.upFormGroup}>
-                        <label className={style.upFormLabel}>Descrição do Modelo</label>
-                        <textarea className={style.upFormInput}></textarea>
-                    </div>
-                    <div className={style.upFormGroup}>
-                        <label className={style.upFormLabel}>Arquivo do Modelo</label>
-                        <input type="file" className={style.upFormInput}></input>
-                    </div>
-                </div>
-            
-            </div>
-        );
     }
 
 
@@ -105,84 +64,31 @@ export default function UploadMaterial(){
         <main className={style.main}>
             <h1 className={style.upTitle}>Fazer Upload</h1>
             <form className={style.upForm}>
-                <h2 className={style.upSubTitle}>Dados do Upload</h2>
-                <div className={style.upFormSection}>
-                    <div className={style.upFormGroup}>
-                        <label className={style.upFormLabel}>Nome do Artefato</label>
-                        <input type="text" className={style.upFormInput}></input>
-                    </div>
-
-                    <div className={style.upFormGroup}>
-                        <label className={style.upFormLabel}>Descrição do Artefato</label>
-                        <textarea className={style.upFormInput}></textarea>
-                    </div>
-
-                    <h3 className={style.upFormTitleLabel}>Tamanhos</h3>
-                    <div className={style.upFormTamanhos}>
-                        <div className={style.upFormGroup}>
-                            <label className={style.upFormLabel}>X</label>
-                            <input type="text" className={style.upFormInput}></input>
-                        </div>
-                        <div className={style.upFormGroup}>
-                            <label className={style.upFormLabel}>Y</label>
-                            <input type="text" className={style.upFormInput}></input>
-                        </div>
-                        <div className={style.upFormGroup}>
-                            <label className={style.upFormLabel}>Z</label>
-                            <input type="text" className={style.upFormInput}></input>
-                        </div>
-                    </div>
-                </div>
-
-                <h2 className={style.upSubTitle}>Upload dos Arquivos</h2>
-                {formAtualConteudo}
-               {/* <div className={style.upFormSection}>
                 
-                    <div className={style.upFormArquivos}>
-                        <h3 className={style.upFormTitleLabel}>Modelo 3D</h3>
-                        <div className={style.upFormGroup}>
-                            <label className={style.upFormLabel}>Descrição do Modelo</label>
-                            <textarea className={style.upFormInput}></textarea>
-                        </div>
-                        <div className={style.upFormGroup}>
-                            <label className={style.upFormLabel}>Arquivo do Modelo</label>
-                            <input type="file" className={style.upFormInput}></input>
-                        </div>
-                    </div>
+                <h2 className={style.upSubTitle}>Upload dos Arquivos</h2>
+                {/*formAtualConteudo*/}
 
-                </div>
-                <div className={style.upFormSection}>
-
-                    <div className={style.upFormArquivos}>
-                        <h3 className={style.upFormTitleLabel}>Textura do Modelo</h3>
-                        <div className={style.upFormGroup}>
-                            <label className={style.upFormLabel}>Descrição da Textura</label>
-                            <textarea className={style.upFormInput}></textarea>
-                        </div>
-                        <div className={style.upFormGroup}>
-                            <label className={style.upFormLabel}>Arquivo do Modelo</label>
-                            <input type="file" className={style.upFormInput}></input>
-                        </div>
-                    </div>
-
-                </div> 
                 <div className={style.upFormSection}>   
 
-                    <div className={style.upFormArquivos}>
-                        <h3 className={style.upFormTitleLabel}>Som do Modelo</h3>
-                        <div className={style.upFormGroup}>
-                            <label className={style.upFormLabel}>Descrição do Modelo</label>
-                            <textarea className={style.upFormInput}></textarea>
-                        </div>
-                        <div className={style.upFormGroup}>
-                            <label className={style.upFormLabel}>Arquivo do Modelo</label>
-                            <input type="file" className={style.upFormInput}></input>
-                        </div>
+                <div className={style.upFormArquivos}>
+                    <div className={style.upFormGroup}>
+                        <label className={style.upFormLabel}>Nome do {type}</label>
+                        <input type="text" className={style.upFormInput}></input>
                     </div>
-                
-                </div>*/}
+                    <div className={style.upFormGroup}>
+                        <label className={style.upFormLabel}>Descrição do {type}</label>
+                        <textarea className={style.upFormInput}></textarea>
+                    </div>
+                    <div className={style.upFormGroup}>
+                        <label className={style.upFormLabel}>Arquivo do {type}</label>
+                        <input type="file" className={style.upFormInput}></input>
+                    </div>
+                </div>
+            
+                <input hidden value={type}/>
+            </div>
 
-                <button type='submit' className={style.formBtn}>Criar Artefato</button>
+                <button type='submit' className={style.formBtn}>Criar {type}</button>
 
             </form>
         </main>

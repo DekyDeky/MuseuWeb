@@ -49,6 +49,15 @@ const router = createBrowserRouter([
     }
   },
   {
+    path: '/criar/artefato',
+    lazy: async () => {
+      const { default: UploadMaterial } = await import('./pages/artefato/ArtefatoCriar');
+      return {
+        Component: UploadMaterial
+      }
+    }
+  },
+  {
     path: '/artefato',
     lazy: async () => {
       const { default: Preview } = await import('./pages/preview/Preview');
