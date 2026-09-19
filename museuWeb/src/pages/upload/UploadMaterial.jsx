@@ -29,23 +29,31 @@ export default function UploadMaterial(){
                 <div className={style.upFormSection}>
                     <div className={style.upFormGroup}>
                         <label className={style.upFormLabel}>Selecione a Textura</label>
-                        <select name="modeloTextura" className={style.upFormInput}>
-                            <option value="0">...</option>
-                            <option value="1">Textura Artefato</option>
-                            <option value="1">Textura Artefato</option>
-                            <option value="1">Textura Artefato</option>
-                            <option value="1">Textura Artefato</option>
-                        </select>
+                        <div className={style.formLine}>                        
+                            <select name="modeloTextura" className={style.upFormInput}>
+                                <option value="0">...</option>
+                                <option value="1">Textura Artefato</option>
+                                <option value="1">Textura Artefato</option>
+                                <option value="1">Textura Artefato</option>
+                                <option value="1">Textura Artefato</option>
+                            </select>
+                            <button type='button' className={style.formAdd}>+</button>
+                            <div className={style.contentAdd}></div>
+                        </div>
                     </div>
                     <div className={style.upFormGroup}>
                         <label className={style.upFormLabel}>Selecione o Som</label>
-                        <select name="modeloSom" className={style.upFormInput}>
-                            <option value="0">...</option>
-                            <option value="1">Som Artefato</option>
-                            <option value="1">Som Artefato</option>
-                            <option value="1">Som Artefato</option>
-                            <option value="1">Som Artefato</option>
-                        </select>
+                        <div className={style.formLine}> 
+                            <select name="modeloSom" className={style.upFormInput}>
+                                <option value="0">...</option>
+                                <option value="1">Som Artefato</option>
+                                <option value="1">Som Artefato</option>
+                                <option value="1">Som Artefato</option>
+                                <option value="1">Som Artefato</option>
+                            </select>
+                            <button type='button' className={style.formAdd}>+</button>
+                            <div className={style.contentAdd}></div>
+                        </div>
                     </div>
                 </div>
             </>
