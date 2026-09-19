@@ -9,6 +9,7 @@ export default function Header({ fullHeader }){
                     {fullHeader ? <a href='/upload/material' className={style.headerUpload}>Upload Artefato</a> : ''}
                     {fullHeader ? <a href='/upload/textura' className={style.headerUpload}>Upload Textura</a> : ''}
                     {fullHeader ? <a href='/upload/som' className={style.headerUpload}>Upload Som</a> : ''}
+                    {fullHeader ? <a href='/criar/artefato' className={style.headerUpload}>Criar Artefato</a> : ''}
                     {!fullHeader ? <a href='/home' className={style.headerUpload}>Voltar</a> : ''}
                 </div>
             </header>

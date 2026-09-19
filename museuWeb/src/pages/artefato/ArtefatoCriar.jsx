@@ -40,6 +40,48 @@ export default function ArtefatoCriar(){
                     </div>
                 </div>
 
+                <h2 className={style.upSubTitle}>Alocar Textura e Som</h2>
+                    <div className={style.upFormSection}>
+                        <div className={style.upFormGroup}>
+                            <label className={style.upFormLabel}>Selecione o modelo</label>            
+                            <select name="modeloTextura" className={style.upFormInput}>
+                                <option value="0">...</option>
+                                <option value="1">Textura Artefato</option>
+                                <option value="1">Textura Artefato</option>
+                                <option value="1">Textura Artefato</option>
+                                <option value="1">Textura Artefato</option>
+                            </select>
+                        </div>
+                        <div className={style.upFormGroup}>
+                            <label className={style.upFormLabel}>Selecione a Textura</label>
+                            <div className={style.formLine}>                        
+                                <select name="modeloTextura" className={style.upFormInput}>
+                                    <option value="0">...</option>
+                                    <option value="1">Textura Artefato</option>
+                                    <option value="1">Textura Artefato</option>
+                                    <option value="1">Textura Artefato</option>
+                                    <option value="1">Textura Artefato</option>
+                                </select>
+                                <button type='button' className={style.formAdd}>+</button>
+                                <div className={style.contentAdd}></div>
+                            </div>
+                        </div>
+                        <div className={style.upFormGroup}>
+                            <label className={style.upFormLabel}>Selecione o Som</label>
+                            <div className={style.formLine}> 
+                                <select name="modeloSom" className={style.upFormInput}>
+                                    <option value="0">...</option>
+                                    <option value="1">Som Artefato</option>
+                                    <option value="1">Som Artefato</option>
+                                    <option value="1">Som Artefato</option>
+                                    <option value="1">Som Artefato</option>
+                                </select>
+                                <button type='button' className={style.formAdd}>+</button>
+                                <div className={style.contentAdd}></div>
+                            </div>
+                        </div>
+                    </div>
+
                 <button type='submit' className={style.formBtn}>Criar Artefato</button>
 
             </form>
