@@ -1,5 +1,6 @@
 const express = require('express');
-const path = require('path');
+const upload = require('../middlewares/upload.middleware');
+const { uploadAudio } = require('../controllers/audio.controller');
 
 const router = express.Router();
 
@@ -11,9 +12,6 @@ router.get('/home', (req, res) => {
   res.send('Home? Huh?');
 });
 
-router.post('/upload/audio', (req, res) => {
-  console.log(req.body.nome);
-  res.send(req.body);
-});
+router.post('/upload/audio', upload.single('arquivo'), uploadAudio);
 
 module.exports = router;
