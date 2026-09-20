@@ -28,6 +28,40 @@ const uploadAudio = (req, res) => {
   });
 };
 
-module.exports = {
-  uploadAudio
+const getAudios = (req, res) => {
+  const query = 'SELECT * FROM audios ORDER BY audio_id DESC';
+
+  connect.query(query, (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar áudios no banco de dados:', err);
+      return res.status(500).json({ error: 'Erro ao buscar no banco de dados.', details: err });
+    }
+
+    return res.status(200).json(results);
+  });
 };
+
+const getAudioById = (req, res) => {
+  const { id } = req.params;
+  const query = 'SELECT * FROM audios WHERE audio_id = ?';
+
+  connect.query(query, [id], (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar áudio no banco de dados:', err);
+      return res.status(500).json({ error: 'Erro ao buscar no banco de dados.', details: err });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ error: 'Áudio não encontrado.' });
+    }
+
+    return res.status(200).json(results[0]);
+  });
+};
+
+module.exports = {
+  uploadAudio,
+  getAudios,
+  getAudioById
+};
+
