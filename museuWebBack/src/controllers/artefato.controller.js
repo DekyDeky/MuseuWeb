@@ -1,11 +1,11 @@
 const connect = require('../config/connect');
 
-const uploadModelo = (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ error: 'Nenhum arquivo de modelo 3D enviado.' });
-  }
+const uploadArtefato = (req, res) => {
+  console.log(req.headers);
+  console.log(req.body);
+  res.send(req.body);
 
-  const descricao = req.body.descricao || '';
+ /* const descricao = req.body.descricao || '';
   const dimensao_x = req.body.dimensao_x !== undefined ? parseFloat(req.body.dimensao_x) : 0;
   const dimensao_y = req.body.dimensao_y !== undefined ? parseFloat(req.body.dimensao_y) : 0;
   const dimensao_z = req.body.dimensao_z !== undefined ? parseFloat(req.body.dimensao_z) : 0;
@@ -32,10 +32,10 @@ const uploadModelo = (req, res) => {
       dimensao_y,
       dimensao_z
     });
-  });
+  });*/
 };
 
-const getModelos = (req, res) => {
+const getArtefatos = (req, res) => {
   const query = 'SELECT * FROM modelos ORDER BY modelo_id DESC';
 
   connect.query(query, (err, results) => {
@@ -48,7 +48,7 @@ const getModelos = (req, res) => {
   });
 };
 
-const getModeloById = (req, res) => {
+const getArtefatoById = (req, res) => {
   const { id } = req.params;
   const query = 'SELECT * FROM modelos WHERE modelo_id = ?';
 
@@ -67,7 +67,7 @@ const getModeloById = (req, res) => {
 };
 
 module.exports = {
-  uploadModelo,
-  getModelos,
-  getModeloById
+  uploadArtefato,
+  getArtefatos,
+  getArtefatoById
 };

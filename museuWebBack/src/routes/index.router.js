@@ -1,8 +1,8 @@
 const express = require('express');
 const upload = require('../middlewares/upload.middleware');
 const uploadModelo = require('../middlewares/uploadModelo.middleware');
-const { uploadAudio, getAudios, getAudioById } = require('../controllers/audio.controller');
-const { uploadModelo: uploadModeloController, getModelos, getModeloById } = require('../controllers/modelo.controller');
+const { uploadAudio, getAudios, getModelos, getTexturas, getAudioById } = require('../controllers/audio.controller');
+const { uploadArtefato: uploadArtefatoController, getArtefatos, getArtefatoById } = require('../controllers/artefato.controller');
 
 const router = express.Router();
 
@@ -19,10 +19,16 @@ router.get('/audios', getAudios);
 router.get('/audios/:id', getAudioById);
 router.post('/upload/audio', upload.single('arquivo'), uploadAudio);
 
-// Rotas de Modelos 3D
+//Rotas de Modelos
 router.get('/modelos', getModelos);
-router.get('/modelos/:id', getModeloById);
-router.post('/upload/modelo', uploadModelo.single('arquivo'), uploadModeloController);
+
+// Rotas de Texturas
+router.get('/texturas', getTexturas);
+
+// Rotas de Modelos 3D
+router.get('/artefatos', getArtefatos);
+router.get('/artefatos/:id', getArtefatoById);
+router.post('/criar/artefato', upload.none(), uploadArtefatoController);
 
 module.exports = router;
-
+

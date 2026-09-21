@@ -39,11 +39,37 @@ const uploadAudio = (req, res) => {
 };
 
 const getAudios = (req, res) => {
-  const query = 'SELECT * FROM audios ORDER BY audio_id DESC';
+  const query = 'SELECT * FROM audios ORDER BY audio_id ASC';
 
   connect.query(query, (err, results) => {
     if (err) {
-      console.error('Erro ao buscar áudios no banco de dados:', err);
+      console.error('Erro ao buscar audios no banco de dados:', err);
+      return res.status(500).json({ error: 'Erro ao buscar no banco de dados.', details: err });
+    }
+
+    return res.status(200).json(results);
+  });
+};
+
+const getModelos = (req, res) => {
+  const query = 'SELECT * FROM modelos ORDER BY modelo_id ASC';
+
+  connect.query(query, (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar modelos no banco de dados:', err);
+      return res.status(500).json({ error: 'Erro ao buscar no banco de dados.', details: err });
+    }
+
+    return res.status(200).json(results);
+  });
+};
+
+const getTexturas = (req, res) => {
+  const query = 'SELECT * FROM texturas ORDER BY textura_id ASC';
+
+  connect.query(query, (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar texturas no banco de dados:', err);
       return res.status(500).json({ error: 'Erro ao buscar no banco de dados.', details: err });
     }
 
@@ -72,6 +98,8 @@ const getAudioById = (req, res) => {
 module.exports = {
   uploadAudio,
   getAudios,
+  getModelos,
+  getTexturas,
   getAudioById
 };
 
