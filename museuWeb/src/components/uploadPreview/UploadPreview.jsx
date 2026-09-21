@@ -1,16 +1,16 @@
 import style from './uploadPreview.module.scss';
 
-export default function UploadPreview(){
+export default function UploadPreview({nome, descricao, criacao, atualizacao}){
     return(
         <>
             <div className={style.upContainer}>
-                <h1 className={style.upTitle}>Estátua Antiga</h1>
-                <h2 className={style.upDescrição}>Estatua antiga de tropeiros encontrada na região de Tibagin os Campos Gerais. </h2>
+                <h1 className={style.upTitle}>{nome}</h1>
+                <h2 className={style.upDescrição}>{descricao}</h2>
                 <div className={style.upDatas}>
-                    <h2 className={style.upCriacao}>Criado em: 20/08/26</h2>
-                    <h2 className={style.upAtualizacao}>Atualizado em: 24/08/26</h2>
+                    <h2 className={style.upCriacao}>Criado em: {criacao}</h2>
+                    <h2 className={style.upAtualizacao}>Atualizado em: {atualizacao}</h2>
                 </div>
-                <a href='/artefato' className={style.upBtn}>Ver Artefato</a>
+                {/*<a href='/artefato' className={style.upBtn}>Ver Artefato</a>*/}
             </div>
         </>
     )
