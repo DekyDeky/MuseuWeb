@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const upload = require('../middlewares/upload.middleware');
 const uploadModelo = require('../middlewares/uploadModelo.middleware');
 const { uploadAudio, getAudios, getModelos, getTexturas, getAudioById } = require('../controllers/audio.controller');
@@ -30,6 +31,21 @@ router.get('/texturas', getTexturas);
 router.get('/artefatos', getArtefatos);
 router.get('/artefatos/:id', getArtefatoById);
 router.post('/criar/artefato', upload.none(), uploadArtefatoController); //o artefato não recebe arquivo, então coloquei o upload.none
+
+router.use(
+  '/storage/textura',
+  express.static(path.join(__dirname, 'storage/textura'))
+);
+
+router.use(
+  '/storage/audio',
+  express.static(path.join(__dirname, 'storage/audio'))
+);
+
+router.use(
+  '/storage/modelo',
+  express.static(path.join(__dirname, 'storage/modelo'))
+);
 
 module.exports = router;
 
