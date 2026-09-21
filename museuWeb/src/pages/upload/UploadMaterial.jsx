@@ -4,7 +4,6 @@ import style from './Upload.module.scss';
 import axios from 'axios';
 
 export default function UploadMaterial(){
-    const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
     const [arquivo, setArquivo] = useState(null);
 
@@ -21,8 +20,8 @@ export default function UploadMaterial(){
 
         const formData = new FormData();
 
-        formData.append("nome", nome);
         formData.append("descricao", descricao);
+        formData.append("tipo", type);
 
         if(arquivo) {
             formData.append("arquivo", arquivo);
@@ -31,18 +30,18 @@ export default function UploadMaterial(){
             return;
         }
 
-        let url;
+        //let url;
 
-        if(type == 'som') url = "http://localhost:3000/upload/audio";
-        else if (type == 'textura') url = "http://localhost:3000/upload/texutra";
-        else if (type == 'modelo') ur = "http://localhost:3000/upload/modelo"
+        //if(type == 'som') url = "http://localhost:3000/upload/audio";
+        //else if (type == 'textura') url = "http://localhost:3000/upload/texutra";
+        //else if (type == 'modelo') ur = "http://localhost:3000/upload/modelo"
 
         try {
 
-            if(!url) throw error("Url para envio não existe!");
+            //if(!url) throw error("Url para envio não existe!");
             
             const response = await axios.post(
-                url,
+                'http://localhost:3000/upload/audio',
                 formData
             );
 
@@ -108,10 +107,6 @@ export default function UploadMaterial(){
 
                 <div className={style.upFormArquivos}>
                     <div className={style.upFormGroup}>
-                        <label className={style.upFormLabel}>Nome do {type}</label>
-                        <input type="text" className={style.upFormInput} value={nome} onChange={(e) => setNome(e.target.value)}></input>
-                    </div>
-                    <div className={style.upFormGroup}>
                         <label className={style.upFormLabel}>Descrição do {type}</label>
                         <textarea className={style.upFormInput} value={descricao} onChange={(e) => setDescricao(e.target.value)}></textarea>
                     </div>
@@ -120,8 +115,6 @@ export default function UploadMaterial(){
                         <input type="file" className={style.upFormInput} onChange={(e) => setArquivo(e.target.files?.[0] ?? null)}></input>
                     </div>
                 </div>
-            
-                <input hidden value={type}/>
             </div>
 
                 <button type='submit' className={style.formBtn}>Criar {type}</button>

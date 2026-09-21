@@ -5,7 +5,7 @@ const crypto = require('crypto');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadPath = path.join(__dirname, '../../storage/audios');
+    const uploadPath = path.join(__dirname, '../../storage/', req.body.tipo);
     if (!fs.existsSync(uploadPath)) {
       fs.mkdirSync(uploadPath, { recursive: true });
     }

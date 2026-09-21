@@ -6,10 +6,20 @@ const uploadAudio = (req, res) => {
   }
 
   const descricao = req.body.descricao || '';
-  const diretorio = `storage/audios/${req.file.filename}`;
+  const diretorio = `storage/${req.body.tipo}/${req.file.filename}`;
+
+  console.log(diretorio);
+
+  let tabela = "";
+
+  if(req.body.tipo == "som") tabela = "audios";
+  if(req.body.tipo == "textura") tabela = "texturas";
+  if(req.body.tipo == "modelo") tabela = "modelos";
+
+  if(tabela === "") return res.status(400).json({error: "Tipo do arquivo não identificado!"});
 
   const query = `
-    INSERT INTO audios (diretorio, descricao, data_criacao, data_atualizacao)
+    INSERT INTO \`${tabela}\` (diretorio, descricao, data_criacao, data_atualizacao)
     VALUES (?, ?, NOW(), NOW())
   `;
 
@@ -20,8 +30,8 @@ const uploadAudio = (req, res) => {
     }
 
     return res.status(201).json({
-      message: 'Áudio salvo com sucesso!',
-      audio_id: result.insertId,
+      message: `${req.body.tipo} salvo com sucesso!`,
+      id: result.insertId,
       diretorio,
       descricao
     });
