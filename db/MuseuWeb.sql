@@ -33,7 +33,7 @@ CREATE TABLE `audios` (
   `descricao` varchar(255) NOT NULL,
   `data_criacao` datetime NOT NULL,
   `data_atualizacao` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -50,7 +50,7 @@ CREATE TABLE `modelos` (
   `dimensao_z` decimal(10,0) NOT NULL,
   `data_criacao` datetime NOT NULL,
   `data_atualizacao` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,7 @@ CREATE TABLE `objetos` (
   `modelo_id` int(11) NOT NULL,
   `data_criacao` datetime NOT NULL,
   `data_atualizacao` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ CREATE TABLE `obj_audios` (
   `obj_textura_id` int(11) NOT NULL,
   `modelo_id` int(11) NOT NULL,
   `audio_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -89,7 +89,7 @@ CREATE TABLE `obj_texturas` (
   `obj_textura_id` int(11) NOT NULL,
   `modelo_id` int(11) NOT NULL,
   `textura_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -103,7 +103,7 @@ CREATE TABLE `texturas` (
   `descricao` varchar(255) NOT NULL,
   `data_criacao` datetime NOT NULL,
   `data_atualizacao` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tabelas despejadas

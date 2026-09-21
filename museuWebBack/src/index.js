@@ -1,5 +1,6 @@
   const express = require('express');
   const cors = require('cors');
+  const path = require('path');
   const router = require('./routes/index.router');
   const connect = require('./config/connect');
 
@@ -7,9 +8,9 @@
   const port = 3000;
 
   app.use(cors());
-
   app.use(express.json());
 
+  app.use('/storage', express.static(path.join(__dirname, '../storage')));
   app.use("/", router);
 
   connect.connect((err) => {
