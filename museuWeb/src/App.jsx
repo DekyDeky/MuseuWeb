@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     }
   },
   {
-    path: '/upload/material',
+    path: '/upload/modelo',
     lazy: async () => {
       const { default: UploadMaterial } = await import('./pages/upload/UploadMaterial');
       return {

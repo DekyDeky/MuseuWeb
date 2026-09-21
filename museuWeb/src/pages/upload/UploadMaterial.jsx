@@ -31,11 +31,18 @@ export default function UploadMaterial(){
             return;
         }
 
-        console.log(formData)
+        let url;
+
+        if(type == 'som') url = "http://localhost:3000/upload/audio";
+        else if (type == 'textura') url = "http://localhost:3000/upload/texutra";
+        else if (type == 'modelo') ur = "http://localhost:3000/upload/modelo"
 
         try {
+
+            if(!url) throw error("Url para envio não existe!");
+            
             const response = await axios.post(
-                "http://localhost:3000/upload/audio",
+                url,
                 formData
             );
 
