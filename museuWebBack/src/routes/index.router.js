@@ -14,6 +14,7 @@ router.get('/home', (req, res) => {
   res.send('Home? Huh?');
 });
 
+  //Alterei o nome das rotas e adicionei uns gets pro formulário funcionar
 // Rotas de Áudio
 router.get('/audios', getAudios);
 router.get('/audios/:id', getAudioById);
@@ -28,7 +29,7 @@ router.get('/texturas', getTexturas);
 // Rotas de Modelos 3D
 router.get('/artefatos', getArtefatos);
 router.get('/artefatos/:id', getArtefatoById);
-router.post('/criar/artefato', upload.none(), uploadArtefatoController);
+router.post('/criar/artefato', upload.none(), uploadArtefatoController); //o artefato não recebe arquivo, então coloquei o upload.none
 
 module.exports = router;
 

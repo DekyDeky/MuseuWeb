@@ -1,9 +1,26 @@
 const connect = require('../config/connect');
 
 const uploadArtefato = (req, res) => {
-  console.log(req.headers);
+  console.log(req.headers); 
   console.log(req.body);
   res.send(req.body);
+
+  //Comentei pra ver se tava recebendo certo.
+  //A estrutura do req do artefato é a seguinte
+  /*
+  
+    nome : "nome",
+    descricao : "descricao",
+    x: 0,
+    y: 0,
+    z: 0,
+    modelo_id : 0,
+    texturas_id : [0, 1] (array de ids de texturas),
+    sons_id : [0, 1] (array de ids de sons)
+  
+  */
+
+  // todos os atributos são obrigatórios, menos os sons.
 
  /* const descricao = req.body.descricao || '';
   const dimensao_x = req.body.dimensao_x !== undefined ? parseFloat(req.body.dimensao_x) : 0;
